@@ -13,6 +13,9 @@ import CompanyRegister from './pages/company/CompanyRegister';
 import ApplicantDetails from './pages/applicant/ApplicantDetails';
 import ApplicantLogin from './pages/applicant/ApplicantLogin';
 import ApplicantRegister from './pages/applicant/ApplicantRegister';
+import AddJob from './pages/job/AddJob';
+import JobList from './pages/job/JobList';
+import Job from './pages/job/Job';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,17 +24,22 @@ ReactDOM.render(
         <Routes>
           <Route path='/' element={<App />}>
             <Route index element={<Welcome />} />
-            <Route path='company' element={<CompanyDashboard />}>
+            <Route path='company'>
               <Route index element={<CompanyDashboard />} />
               <Route path=':id' element={<CompanyDetails />} />
               <Route path='login' element={<CompanyLogin />} />
               <Route path='register' element={<CompanyRegister />} />
             </Route>
-            <Route path='applicant' element={<ApplicantDashboard />}>
+            <Route path='applicant'>
               <Route index element={<ApplicantDashboard />} />
               <Route path=':id' element={<ApplicantDetails />} />
               <Route path='login' element={<ApplicantLogin />} />
               <Route path='register' element={<ApplicantRegister />} />
+            </Route>
+            <Route path='jobs'>
+              <Route index element={<JobList />} />
+              <Route path=':id' element={<Job />} />
+              <Route path='add' element={<AddJob />} />
             </Route>
           </Route>
         </Routes>

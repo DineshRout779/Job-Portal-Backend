@@ -1,22 +1,35 @@
 import { Link } from 'react-router-dom';
+import { useAppContext } from '../context/AppContext';
 
 const Navbar = () => {
+  const { state } = useAppContext();
+  const { user, isApplicant } = state;
+
   return (
     <header>
       <div className='container'>
         <nav className='nav flex align-center justify-between'>
           <Link to='/' className='logo'>
-            <h2>Logo</h2>
+            <h2>Jobify</h2>
           </Link>
-          <div>
-            <Link to='/profile'>Profile</Link>
+          <div className='flex align-center'>
             <Link to='/jobs'>All Jobs</Link>
-            <Link to='/applied'>Applied</Link>
-            <Link to='/login-as-applicant' className='btn'>
-              Login
-            </Link>
-            <Link to='/register-as-applicant' className='btn btn-rev'>
-              Register
+            {isApplicant && <Link to='/applied'>Applied</Link>}
+            {!user && (
+              <>
+                <Link to='/applicant/login' className='btn'>
+                  Login
+                </Link>
+                <Link to='/applicant/register' className='btn btn-rev'>
+                  Register
+                </Link>
+              </>
+            )}
+            <Link
+              to={isApplicant ? `/applicant/${user.id}` : `/company/${user.id}`}
+              className='btn btn-avatar'
+            >
+              {user.name.charAt(0)}
             </Link>
           </div>
         </nav>
