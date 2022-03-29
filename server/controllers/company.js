@@ -1,0 +1,7 @@
+exports.getCompanyById = () => {
+  //
+};
+
+exports.getCompany = () => {
+  //
+};
