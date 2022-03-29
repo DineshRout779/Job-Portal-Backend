@@ -1,4 +1,8 @@
 const ApplicantDashboard = () => {
-  return <div>ApplicantDashboard</div>;
+  return (
+    <div className='container'>
+      <h1>ApplicantDashboard</h1>
+    </div>
+  );
 };
 export default ApplicantDashboard;
