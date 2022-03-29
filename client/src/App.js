@@ -1,9 +1,11 @@
-import './App.css';
+import { Outlet } from 'react-router';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Job Portal</h1>
+    <div>
+      <Navbar />
+      <Outlet />
     </div>
   );
 }
