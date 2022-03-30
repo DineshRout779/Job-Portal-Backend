@@ -17,6 +17,7 @@
 
 body {
   line-height: 1.6;
+  color: #333;
 }
 
 h1,
@@ -53,7 +54,7 @@ button {
 }
 
 .container {
-  width: 90%;
+  width: 95%;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -132,9 +133,9 @@ a.btn-rev {
 
 /* form */
 .form {
-  width: 90%;
+  width: 100%;
   max-width: 360px;
-  margin: 0auto;
+  margin: 0 auto;
 }
 
 .form-group {
@@ -169,6 +170,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .btn:hover {
