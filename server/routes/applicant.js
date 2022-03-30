@@ -1,4 +1,4 @@
-const { getApplicant } = require('../controllers/applicant');
+const { getApplicant, getApplicantById } = require('../controllers/applicant');
 
 const router = require('express').Router();
 

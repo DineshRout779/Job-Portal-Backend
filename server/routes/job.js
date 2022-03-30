@@ -1,5 +1,12 @@
 const { getApplicantById } = require('../controllers/applicant');
 const { getCompanyById } = require('../controllers/company');
+const {
+  getJobById,
+  getJob,
+  createJob,
+  getAllJobs,
+  applyJob,
+} = require('../controllers/job');
 
 const router = require('express').Router();
 
@@ -17,6 +24,6 @@ router.get('/:jobId', getJob);
 router.post('/:companyId', createJob);
 
 // apply job
-router.put('/:jobId/:applicantId', createJob);
+router.put('/:jobId/:applicantId', applyJob);
 
 module.exports = router;
