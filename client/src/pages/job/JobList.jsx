@@ -1,11 +1,10 @@
-import { jobs } from '../../data';
 import { Link } from 'react-router-dom';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { useAppContext } from '../../context/AppContext';
 
 const JobList = () => {
   const { state } = useAppContext();
-  const { isApplicant } = state;
+  const { isApplicant, jobs } = state;
 
   return (
     <div className='container'>
