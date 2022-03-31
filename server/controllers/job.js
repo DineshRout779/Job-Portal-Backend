@@ -55,6 +55,14 @@ exports.createJob = async (req, res) => {
   }
 };
 
-exports.applyJob = (req, res) => {
-  //
+exports.applyJob = async (req, res) => {
+  try {
+    const job = await Job.findById(req.job._id);
+    if (!job.applicants.includes(req.applicant._id)) {
+      await job.updateOne({ $push: { applicants: req.applicant._id } });
+      res.status(200).json('Successfull applied the job!');
+    }
+  } catch (error) {
+    return res.status(500).json(err);
+  }
 };
