@@ -5,7 +5,7 @@ exports.getCompanyById = async (req, res, next, id) => {
     let company = await Company.findById(id);
     if (!company) {
       return res.status(404).json({
-        error: 'Applicant not found',
+        error: 'Company not found',
       });
     }
 

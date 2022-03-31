@@ -7,7 +7,6 @@ const JobSchema = new mongoose.Schema(
       required: true,
       trim: true,
       maxlength: 32,
-      unique: true,
     },
     company: { type: mongoose.Schema.ObjectId, ref: 'Company' },
     position: {
