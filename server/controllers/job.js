@@ -16,8 +16,8 @@ exports.getJobById = async (req, res, next, id) => {
   }
 };
 
-exports.getJob = () => {
-  return res.json(req.company);
+exports.getJob = (req, res) => {
+  return res.json(req.job);
 };
 
 exports.getAllJobs = async (req, res) => {
