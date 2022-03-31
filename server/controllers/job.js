@@ -46,9 +46,7 @@ exports.createJob = async (req, res) => {
 
   try {
     let savedJob = await newJob.save();
-    savedJob = await savedJob
-      .populate('company', '_id name')
-      .populate('applicants', '_id name');
+    // savedJob = await savedJob.populate('company', '_id name');
     return res.status(201).json(savedJob);
   } catch (error) {
     return res.status(500).json({
