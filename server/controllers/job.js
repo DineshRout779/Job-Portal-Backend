@@ -2,7 +2,7 @@ const Job = require('../models/Job');
 
 exports.getJobById = async (req, res, next, id) => {
   try {
-    let job = await Job.findById(id);
+    let job = await Job.findById(id).populate('company', '_id name');
     if (!job) {
       return res.status(404).json({
         error: 'Job not found',
