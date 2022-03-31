@@ -2,7 +2,9 @@ const Job = require('../models/Job');
 
 exports.getJobById = async (req, res, next, id) => {
   try {
-    let job = await Job.findById(id).populate('company', '_id name');
+    let job = await Job.findById(id)
+      .populate('company', '_id name')
+      .populate('applicants', '_id name');
     if (!job) {
       return res.status(404).json({
         error: 'Job not found',
@@ -22,7 +24,9 @@ exports.getJob = (req, res) => {
 
 exports.getAllJobs = async (req, res) => {
   try {
-    let jobs = await Job.find();
+    let jobs = await Job.find()
+      .populate('company', '_id name')
+      .populate('applicants', '_id name');
 
     return res.status(200).json(jobs);
   } catch (err) {
@@ -42,7 +46,9 @@ exports.createJob = async (req, res) => {
 
   try {
     let savedJob = await newJob.save();
-    savedJob = await savedJob.populate('applicants', '_id name');
+    savedJob = await savedJob
+      .populate('company', '_id name')
+      .populate('applicants', '_id name');
     return res.status(201).json(savedJob);
   } catch (error) {
     return res.status(500).json({
